@@ -1,0 +1,4 @@
+include *.rst
+include LICENSE
+include requirements.txt
+include MANIFEST

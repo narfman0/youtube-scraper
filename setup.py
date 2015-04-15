@@ -16,6 +16,7 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries :: Python Modules',
+    ],
     keywords='youtube scraper meta',
     author='Jon Robison',
     author_email='narfman0@gmail.com',

@@ -8,10 +8,10 @@ Usage
 
 This is a developer focused library to provide information from youtube.
 
-    from youtube_scraper.scraper import scrape_url
-    data = scrape_url('http://youtube.com/watch?v=7dlcxXxDGUI')
-    print(data.poster)
-    >>>'TheViperAOC'
+    >>> from youtube_scraper.scraper import scrape_url
+    >>> data = scrape_url('http://youtube.com/watch?v=7dlcxXxDGUI')
+    >>> print(data.poster)
+    'TheViperAOC'
 
 License
 -------

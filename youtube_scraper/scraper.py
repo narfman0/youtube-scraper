@@ -1,5 +1,5 @@
 """ Library entry point """
-import requests
+import re, requests
 from bs4 import BeautifulSoup
 
 class YoutubeScrape(object):
@@ -10,13 +10,14 @@ class YoutubeScrape(object):
         self.title = self.parse_string('.watch-title')
         self.poster = self.parse_string('.yt-user-info')
         self.views = self.parse_int('.watch-view-count')
-        self.published = self.parse_string('.watch-time-text').replace('Published on ', '')
+        self.published = self.parse_string('.watch-time-text')
+        self.published = re.sub(r'(Published|Uploaded) on', '', self.published).strip()
         self.like = self.parse_int('#watch-like')
         self.dislike = self.parse_int('#watch-dislike')
 
     def parse_int(self, selector):
         """ Extract one integer element from soup """
-        return int(self.parse_string(selector).replace(',', ''))
+        return int(re.sub('[^0-9]', '', self.parse_string(selector)))
 
     def parse_string(self, selector):
         """ Extract one particular element from soup """
@@ -29,7 +30,6 @@ def scrape_html(html):
 
 
 def scrape_url(url):
-    """ Scrape a given url for youtube information
-    Should match '(youtu\.be/|youtube\.com/watch?v=)[\S]+' """
+    """ Scrape a given url for youtube information """
     html = requests.get(url).text
     return scrape_html(html)

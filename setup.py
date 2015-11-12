@@ -1,9 +1,10 @@
 from pip.req import parse_requirements
+from pip.download import PipSession
 from setuptools import setup, find_packages
 from youtube_scraper import __version__ as version
 
 requirements = [
-    str(req.req) for req in parse_requirements('requirements.txt')
+    str(req.req) for req in parse_requirements('requirements.txt', session=PipSession())
 ]
 
 setup(

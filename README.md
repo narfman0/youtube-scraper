@@ -1,7 +1,7 @@
 youtube-scraper
 ===============
 
-Provide information for youtube related metadata
+Provide information for youtube related metadata (title, user, views, likes, dislikes, publish date)
 
 Usage
 -----

@@ -31,9 +31,8 @@ def scrape_html(html):
 
 def scrape_url(url):
     """ Scrape a given url for youtube information """
-    html = requests.get(url).text
 
-    #with open('test.html', 'w') as f:
-    #    f.write(html.encode('utf-8'))
-
+    # set English as scraping language
+    headers = {"Accept-Language": "en-US,en;q=0.5"}
+    html = requests.get(url, headers=headers).text
     return scrape_html(html)
